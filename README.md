@@ -377,4 +377,3 @@ For questions or support, please open an issue in the GitHub repository.
 
 ---
 
-**Built with ❤️ using Express.js, MongoDB, and modern JavaScript**
