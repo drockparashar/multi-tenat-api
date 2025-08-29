@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "e34bdc6f-b6a5-4995-8fb8-f9fba628bd6b",
+		"name": "Multi-tenat-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32890232"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test@example.com\",\r\n    \"password\": \"yourpassword\",\r\n    \"organization\": \"TestOrg\",\r\n    \"name\": \"Test User\",\r\n    \"role\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/auth/register",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SignIn",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"test@example.com\",\r\n  \"password\": \"yourpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/auth/login",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUsers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGFlYWI2MjMwM2YxNmE3ZDAzMTgwZmIiLCJyb2xlIjoiYWRtaW4iLCJvcmdhbml6YXRpb25JZCI6IjY4YWVhYjYxMzAzZjE2YTdkMDMxODBmOSIsImlhdCI6MTc1NjI3Nzg0MCwiZXhwIjoxNzU2MzY0MjQwfQ.YJlqv0bkVl3Au-fyVjeJWkoOYWIr-SVyw0tWPXa3uqM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/api/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateAPIKey",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGFlYWI2MjMwM2YxNmE3ZDAzMTgwZmIiLCJyb2xlIjoiYWRtaW4iLCJvcmdhbml6YXRpb25JZCI6IjY4YWVhYjYxMzAzZjE2YTdkMDMxODBmOSIsImlhdCI6MTc1NjI3Nzg0MCwiZXhwIjoxNzU2MzY0MjQwfQ.YJlqv0bkVl3Au-fyVjeJWkoOYWIr-SVyw0tWPXa3uqM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/api/apikeys",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"apikeys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateProject",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGFlYWI2MjMwM2YxNmE3ZDAzMTgwZmIiLCJyb2xlIjoiYWRtaW4iLCJvcmdhbml6YXRpb25JZCI6IjY4YWVhYjYxMzAzZjE2YTdkMDMxODBmOSIsImlhdCI6MTc1NjI3Nzg0MCwiZXhwIjoxNzU2MzY0MjQwfQ.YJlqv0bkVl3Au-fyVjeJWkoOYWIr-SVyw0tWPXa3uqM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Project beta\",\r\n  \"description\": \"Second project for testing\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/projects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListProjects",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGFlYWI2MjMwM2YxNmE3ZDAzMTgwZmIiLCJyb2xlIjoiYWRtaW4iLCJvcmdhbml6YXRpb25JZCI6IjY4YWVhYjYxMzAzZjE2YTdkMDMxODBmOSIsImlhdCI6MTc1NjI3Nzg0MCwiZXhwIjoxNzU2MzY0MjQwfQ.YJlqv0bkVl3Au-fyVjeJWkoOYWIr-SVyw0tWPXa3uqM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/api/projects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListProjectById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGFlYWI2MjMwM2YxNmE3ZDAzMTgwZmIiLCJyb2xlIjoiYWRtaW4iLCJvcmdhbml6YXRpb25JZCI6IjY4YWVhYjYxMzAzZjE2YTdkMDMxODBmOSIsImlhdCI6MTc1NjI3Nzg0MCwiZXhwIjoxNzU2MzY0MjQwfQ.YJlqv0bkVl3Au-fyVjeJWkoOYWIr-SVyw0tWPXa3uqM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/api/projects/68aeaf3bbaf6c15df8d5c842",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"projects",
+						"68aeaf3bbaf6c15df8d5c842"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateProject",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGFlYWI2MjMwM2YxNmE3ZDAzMTgwZmIiLCJyb2xlIjoiYWRtaW4iLCJvcmdhbml6YXRpb25JZCI6IjY4YWVhYjYxMzAzZjE2YTdkMDMxODBmOSIsImlhdCI6MTc1NjI3Nzg0MCwiZXhwIjoxNzU2MzY0MjQwfQ.YJlqv0bkVl3Au-fyVjeJWkoOYWIr-SVyw0tWPXa3uqM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Project Alpha Updated\",\r\n  \"description\": \"Updated description\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/projects/68aeaf3bbaf6c15df8d5c842",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"projects",
+						"68aeaf3bbaf6c15df8d5c842"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteProject",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGFlYWI2MjMwM2YxNmE3ZDAzMTgwZmIiLCJyb2xlIjoiYWRtaW4iLCJvcmdhbml6YXRpb25JZCI6IjY4YWVhYjYxMzAzZjE2YTdkMDMxODBmOSIsImlhdCI6MTc1NjI3Nzg0MCwiZXhwIjoxNzU2MzY0MjQwfQ.YJlqv0bkVl3Au-fyVjeJWkoOYWIr-SVyw0tWPXa3uqM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Project Alpha Updated\",\r\n  \"description\": \"Updated description\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/projects/68aeb0dfbaf6c15df8d5c84c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"projects",
+						"68aeb0dfbaf6c15df8d5c84c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateOrganization",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGFlYWI2MjMwM2YxNmE3ZDAzMTgwZmIiLCJyb2xlIjoiYWRtaW4iLCJvcmdhbml6YXRpb25JZCI6IjY4YWVhYjYxMzAzZjE2YTdkMDMxODBmOSIsImlhdCI6MTc1NjI3Nzg0MCwiZXhwIjoxNzU2MzY0MjQwfQ.YJlqv0bkVl3Au-fyVjeJWkoOYWIr-SVyw0tWPXa3uqM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"NewOrg2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/organizations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"organizations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteOrganization",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGFlYWI2MjMwM2YxNmE3ZDAzMTgwZmIiLCJyb2xlIjoiYWRtaW4iLCJvcmdhbml6YXRpb25JZCI6IjY4YWVhYjYxMzAzZjE2YTdkMDMxODBmOSIsImlhdCI6MTc1NjI3Nzg0MCwiZXhwIjoxNzU2MzY0MjQwfQ.YJlqv0bkVl3Au-fyVjeJWkoOYWIr-SVyw0tWPXa3uqM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"NewOrg\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/organizations/68afec6ee06f91aa62d0a49d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"organizations",
+						"68afec6ee06f91aa62d0a49d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListOrganizations",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGFlYWI2MjMwM2YxNmE3ZDAzMTgwZmIiLCJyb2xlIjoiYWRtaW4iLCJvcmdhbml6YXRpb25JZCI6IjY4YWVhYjYxMzAzZjE2YTdkMDMxODBmOSIsImlhdCI6MTc1NjI3Nzg0MCwiZXhwIjoxNzU2MzY0MjQwfQ.YJlqv0bkVl3Au-fyVjeJWkoOYWIr-SVyw0tWPXa3uqM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"NewOrg\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/organizations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"organizations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetOrganizationById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGFlYWI2MjMwM2YxNmE3ZDAzMTgwZmIiLCJyb2xlIjoiYWRtaW4iLCJvcmdhbml6YXRpb25JZCI6IjY4YWVhYjYxMzAzZjE2YTdkMDMxODBmOSIsImlhdCI6MTc1NjI3Nzg0MCwiZXhwIjoxNzU2MzY0MjQwfQ.YJlqv0bkVl3Au-fyVjeJWkoOYWIr-SVyw0tWPXa3uqM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"NewOrg\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/organizations/68aeab61303f16a7d03180f9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"organizations",
+						"68aeab61303f16a7d03180f9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateOrganizationById",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGFlYWI2MjMwM2YxNmE3ZDAzMTgwZmIiLCJyb2xlIjoiYWRtaW4iLCJvcmdhbml6YXRpb25JZCI6IjY4YWVhYjYxMzAzZjE2YTdkMDMxODBmOSIsImlhdCI6MTc1NjI3Nzg0MCwiZXhwIjoxNzU2MzY0MjQwfQ.YJlqv0bkVl3Au-fyVjeJWkoOYWIr-SVyw0tWPXa3uqM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Updated Org\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/organizations/68aeab61303f16a7d03180f9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"organizations",
+						"68aeab61303f16a7d03180f9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RotateApiKey",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGFlYWI2MjMwM2YxNmE3ZDAzMTgwZmIiLCJyb2xlIjoiYWRtaW4iLCJvcmdhbml6YXRpb25JZCI6IjY4YWVhYjYxMzAzZjE2YTdkMDMxODBmOSIsImlhdCI6MTc1NjI3Nzg0MCwiZXhwIjoxNzU2MzY0MjQwfQ.YJlqv0bkVl3Au-fyVjeJWkoOYWIr-SVyw0tWPXa3uqM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/api/apikeys/68aead49303f16a7d0318100/rotate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"apikeys",
+						"68aead49303f16a7d0318100",
+						"rotate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RevokeApiKey",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGFlYWI2MjMwM2YxNmE3ZDAzMTgwZmIiLCJyb2xlIjoiYWRtaW4iLCJvcmdhbml6YXRpb25JZCI6IjY4YWVhYjYxMzAzZjE2YTdkMDMxODBmOSIsImlhdCI6MTc1NjI3Nzg0MCwiZXhwIjoxNzU2MzY0MjQwfQ.YJlqv0bkVl3Au-fyVjeJWkoOYWIr-SVyw0tWPXa3uqM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/api/apikeys/68aead49303f16a7d0318100/revoke",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"apikeys",
+						"68aead49303f16a7d0318100",
+						"revoke"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3000",
+			"type": "default"
+		}
+	]
+}
